@@ -1,6 +1,6 @@
 = Next Generation Enterprise Testing with Spock
 
-This repository contains the example source code of my article `Next Generation Enterprise Testing with Spock`
+This repository contains the example source code of my article _Next Generation Enterprise Testing with Spock_
 in the JavaMagazin issue 08/2016.
 
 == Usage
