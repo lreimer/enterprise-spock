@@ -1,0 +1,7 @@
+
+dependencies {
+		testCompile 'org.mockito:mockito-all:1.10.19'
+		
+		// only necessary if Hamcrest matchers are used
+		testCompile 'org.hamcrest:hamcrest-core:1.3'
+}
