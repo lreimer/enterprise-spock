@@ -14,7 +14,7 @@
     </properties>
 
     <modules>
-      <module>spock-basics</module>
+        <module>spock-basics</module>
     </modules>
 
     <build>
