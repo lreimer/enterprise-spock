@@ -1,16 +1,16 @@
 = Next Generation Enterprise Testing with Spock
 
-This is the repository for my article about `Next Generation Enterprise Testing with Spock`
-in the JavaMagazin Issue 08/2016.
+This repository contains the example source code of my article `Next Generation Enterprise Testing with Spock`
+in the JavaMagazin issue 08/2016.
 
 == Usage
 
 To build and run the Spock showcase example tests you can either use Maven or Gradle
 using the provided wrapper scripts:
 ```shell
-	$ gradlew clean build
-
-  $ mvnw clean install
+$ gradlew clean build
+...
+$ mvnw clean install
 ```
 
 == Details
