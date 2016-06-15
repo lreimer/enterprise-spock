@@ -1,6 +1,6 @@
 rootProject.name = 'enterprise-spock'
 
 include ':spock-basics'
+include ':spock-spring'
 include ':spock-wiremock'
-//include ':spock-arquillian'
-//include ':spock-geb'
+include ':spock-geb'
