@@ -1,3 +1,17 @@
-dependencies {
+ext {
+    springVersion = "4.3.0.RELEASE"
+}
 
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.4'
+
+    compile 'org.spockframework:spock-core:1.0-groovy-2.4'
+
+    compile "org.springframework:spring-beans:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "javax.inject:javax.inject:1"
+
+    testCompile 'org.hamcrest:hamcrest-core:1.3'
+    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testCompile "org.springframework:spring-test:$springVersion"
 }
