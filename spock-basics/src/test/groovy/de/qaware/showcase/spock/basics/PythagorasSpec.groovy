@@ -33,15 +33,25 @@ import spock.lang.Unroll
 class PythagorasSpec extends Specification {
 
     @Unroll
-    def "#a Quadrat + #b Quadrat = #c Quadrat"() {
+    def "#a Quadrat + #b Quadrat = #c Quadrat (with Data Pipes)"() {
         expect:
         Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2).round(0)
 
         where:
-        a << [1, 2, 3, 4, 5]
-        b << [5, 6, 7, 8, 9]
+        a << [1, 2, 3]
+        b << [4, 5, 6]
         c = Math.sqrt(a * a + b * b)
     }
 
+    @Unroll
+    def "#a Quadrat + #b Quadrat = #c Quadrat (with Data Tables)"() {
+        expect:
+        Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2).round(0)
 
+        where:
+        a | b || c
+        1 | 4 || Math.sqrt(17)
+        2 | 5 || Math.sqrt(29)
+        3 | 6 || Math.sqrt(45)
+    }
 }
