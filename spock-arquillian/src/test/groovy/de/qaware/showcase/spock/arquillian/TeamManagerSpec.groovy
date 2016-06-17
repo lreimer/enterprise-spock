@@ -21,33 +21,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.spring;
+package de.qaware.showcase.spock.arquillian
 
-import java.util.Collection;
+import org.jboss.arquillian.container.test.api.Deployment
+import org.jboss.arquillian.spock.ArquillianSputnik
+import org.jboss.shrinkwrap.api.ShrinkWrap
+import org.jboss.shrinkwrap.api.asset.EmptyAsset
+import org.jboss.shrinkwrap.api.spec.JavaArchive
+import org.junit.runner.RunWith
+import spock.lang.Specification
+
+import javax.inject.Inject
 
 /**
- * The user repository. We will mock this interface later.
+ * A Spock showcase specification for Arquillian integration.
  */
-public interface UserRepository {
-    /**
-     * Find a user by its username.
-     *
-     * @param username the username
-     * @return the User or NULL
-     */
-    User findByUsername(String username);
+@RunWith(ArquillianSputnik.class)
+class TeamManagerSpec extends Specification {
 
-    /**
-     * FInd and return all users.
-     *
-     * @return a lis of users
-     */
-    Collection<User> all();
+    @Deployment
+    def static JavaArchive "Create Arquillian deployment"() {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addClasses(Developer.class, TeamManager.class)
+                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+    }
 
-    /**
-     * Store the given user.
-     *
-     * @param user the user
-     */
-    void store(User user);
+    @Inject
+    TeamManager teamManager
+
+    def "Check injection and usage of TeamManager bean"() {
+        expect:
+        teamManager.members.size() == 1
+    }
 }

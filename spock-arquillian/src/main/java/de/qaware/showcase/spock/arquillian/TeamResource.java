@@ -21,33 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.spring;
+package de.qaware.showcase.spock.arquillian;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import java.util.Collection;
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
 /**
- * The user repository. We will mock this interface later.
+ * The Developer REST resource.
  */
-public interface UserRepository {
-    /**
-     * Find a user by its username.
-     *
-     * @param username the username
-     * @return the User or NULL
-     */
-    User findByUsername(String username);
+@RequestScoped
+@Path("/team")
+public class TeamResource {
 
-    /**
-     * FInd and return all users.
-     *
-     * @return a lis of users
-     */
-    Collection<User> all();
+    @Inject
+    private TeamManager teamManager;
 
-    /**
-     * Store the given user.
-     *
-     * @param user the user
-     */
-    void store(User user);
+    @GET
+    @Produces(APPLICATION_JSON)
+    public Collection<Developer> all() {
+        return teamManager.getMembers();
+    }
 }

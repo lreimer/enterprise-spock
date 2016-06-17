@@ -1,3 +1,8 @@
-dependencies {
+apply plugin: 'war'
 
+dependencies {
+    providedCompile 'javax:javaee-api:7.0'
+
+    testCompile 'org.jboss.arquillian.container:arquillian-container-test-api:1.1.11.Final'
+    testCompile 'org.jboss.arquillian.spock:arquillian-spock-container:1.0.0.Beta3'
 }

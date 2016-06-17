@@ -21,33 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.spring;
+package de.qaware.showcase.spock.arquillian;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.Collection;
+import java.util.Collections;
 
 /**
- * The user repository. We will mock this interface later.
+ * Super simple person service.
  */
-public interface UserRepository {
+@ApplicationScoped
+public class TeamManager {
     /**
-     * Find a user by its username.
+     * Get all the team members.
      *
-     * @param username the username
-     * @return the User or NULL
+     * @return a list of developers
      */
-    User findByUsername(String username);
-
-    /**
-     * FInd and return all users.
-     *
-     * @return a lis of users
-     */
-    Collection<User> all();
-
-    /**
-     * Store the given user.
-     *
-     * @param user the user
-     */
-    void store(User user);
+    public Collection<Developer> getMembers() {
+        return Collections.singletonList(new Developer("lreimer"));
+    }
 }

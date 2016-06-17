@@ -21,33 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.spring;
+package de.qaware.showcase.spock.arquillian;
 
-import java.util.Collection;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+import java.util.Collections;
+import java.util.Set;
 
 /**
- * The user repository. We will mock this interface later.
+ * The REST application class to register API path and resources.
  */
-public interface UserRepository {
-    /**
-     * Find a user by its username.
-     *
-     * @param username the username
-     * @return the User or NULL
-     */
-    User findByUsername(String username);
-
-    /**
-     * FInd and return all users.
-     *
-     * @return a lis of users
-     */
-    Collection<User> all();
-
-    /**
-     * Store the given user.
-     *
-     * @param user the user
-     */
-    void store(User user);
+@ApplicationPath("/api")
+public class TeamApplication extends Application {
+    @Override
+    public Set<Class<?>> getClasses() {
+        return Collections.singleton(TeamResource.class);
+    }
 }

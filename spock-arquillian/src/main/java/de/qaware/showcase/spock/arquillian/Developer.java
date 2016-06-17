@@ -21,33 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.spring;
-
-import java.util.Collection;
+package de.qaware.showcase.spock.arquillian;
 
 /**
- * The user repository. We will mock this interface later.
+ * A simple showcase Developer POJO.
  */
-public interface UserRepository {
-    /**
-     * Find a user by its username.
-     *
-     * @param username the username
-     * @return the User or NULL
-     */
-    User findByUsername(String username);
+public class Developer {
+    private String name;
 
-    /**
-     * FInd and return all users.
-     *
-     * @return a lis of users
-     */
-    Collection<User> all();
+    public Developer() {
+    }
 
-    /**
-     * Store the given user.
-     *
-     * @param user the user
-     */
-    void store(User user);
+    public Developer(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
