@@ -10,8 +10,9 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
+        maven { url "http://dl.bintray.com/qaware-oss/maven" }
         jcenter()
+        mavenCentral()
     }
 }
 
