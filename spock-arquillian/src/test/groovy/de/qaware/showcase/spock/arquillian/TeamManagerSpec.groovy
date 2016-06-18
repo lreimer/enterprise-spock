@@ -29,6 +29,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap
 import org.jboss.shrinkwrap.api.asset.EmptyAsset
 import org.jboss.shrinkwrap.api.spec.JavaArchive
 import org.junit.runner.RunWith
+import spock.lang.Ignore
 import spock.lang.Specification
 
 import javax.inject.Inject
@@ -36,7 +37,8 @@ import javax.inject.Inject
 /**
  * A Spock showcase specification for Arquillian integration.
  */
-@RunWith(ArquillianSputnik.class)
+@Ignore("Currently there is a version incompatibility between Spock and Arquillian.")
+// @RunWith(ArquillianSputnik.class)
 class TeamManagerSpec extends Specification {
 
     @Deployment
