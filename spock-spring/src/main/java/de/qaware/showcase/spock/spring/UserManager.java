@@ -23,6 +23,7 @@
  */
 package de.qaware.showcase.spock.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -34,7 +35,17 @@ import java.util.UUID;
 @Component
 public class UserManager {
 
-    private UserRepository repository;
+    private final UserRepository repository;
+
+    /**
+     * Initialize the user manager with the required repository instance.
+     *
+     * @param repository a user repository instance
+     */
+    @Autowired
+    public UserManager(final UserRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * Reset the password for the user identified by the given username.
@@ -61,10 +72,6 @@ public class UserManager {
 
     public UserRepository getRepository() {
         return repository;
-    }
-
-    public void setRepository(UserRepository repository) {
-        this.repository = repository;
     }
 
 }

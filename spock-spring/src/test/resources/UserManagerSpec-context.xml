@@ -2,14 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:spock="http://www.spockframework.org/spring"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.spockframework.org/spring http://www.spockframework.org/spring/spock.xsd">
 
+    <context:annotation-config/>
     <context:component-scan base-package="de.qaware.showcase.spock.spring"/>
 
-    <!-- manual bean
-    <bean id="userManager" class="de.qaware.showcase.spock.spring.UserManager"/>
-    -->
+    <!-- create a Spock mock that is injectable into beans as well as specs -->
+    <spock:mock id="serviceMock" class="de.qaware.showcase.spock.spring.UserRepository"/>
 
 </beans>

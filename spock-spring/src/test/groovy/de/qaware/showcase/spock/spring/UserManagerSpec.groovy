@@ -41,14 +41,13 @@ class UserManagerSpec extends Specification {
     @Inject
     UserManager manager
 
+    @Inject
     UserRepository repository
 
     String password
 
     def setup() {
         assert manager instanceof UserManager
-        repository = Mock(UserRepository)
-        manager.repository = repository;
     }
 
     def "Check proper interactions with repository for resetPassword"() {
