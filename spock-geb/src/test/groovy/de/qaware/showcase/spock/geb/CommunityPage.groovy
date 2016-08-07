@@ -30,7 +30,7 @@ import geb.Page
  */
 class CommunityPage extends Page {
     static url = "http://www.qaware.de/community/"
-    static at = { browser.title.contains("QAware: Community") }
+    static at = { browser.title.contains("Community") }
     static content = {
         headline { $("h1", 1) }
     }

@@ -30,7 +30,7 @@ import geb.Page
  */
 class IndexPage extends Page {
     static url = "http://www.qaware.de"
-    static at = { browser.title.contains("QAware: IT-Probleme lösen. Digitale Zukunft gestalten.") }
+    static at = { browser.title.contains("QAware") }
     static content = {
         headline { $("h1", 0) }
     }

@@ -30,7 +30,7 @@ import geb.Page
  */
 class CareerPage extends Page {
     static url = "http://www.qaware.de/karriere/"
-    static at = { browser.title.contains("QAware: Karriere") }
+    static at = { browser.title.contains("Stellenangebote") }
     static content = {
         headline { $("h1", 1) }
     }
