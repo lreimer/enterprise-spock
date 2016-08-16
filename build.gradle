@@ -8,6 +8,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.standardout.versioneye" version "1.4.0"
+}
+
 allprojects {
     repositories {
         maven { url "http://dl.bintray.com/qaware-oss/maven" }
@@ -22,7 +26,7 @@ subprojects {
     apply plugin: 'license'
 
     version = '1.0.0'
-    group = 'de.qaware.showcase.spock'
+    group = 'de.qaware.oss'
 
     // Spock works with Java 1.5 and above
     sourceCompatibility = 1.8
@@ -30,18 +34,18 @@ subprojects {
 
     dependencies {
         // mandatory dependencies for using Spock
-        compile 'org.codehaus.groovy:groovy-all:2.4.1'
+        compile 'org.codehaus.groovy:groovy-all:2.4.7'
         testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-1'
         testCompile 'junit:junit:4.12'
 
         // optional dependencies for using Spock
         // allows mocking of classes (in addition to interfaces)
-        testRuntime 'cglib:cglib-nodep:3.1'
+        testRuntime 'cglib:cglib-nodep:3.2.4'
 
         // allows mocking of classes without default constructor (together with CGLIB)
-        testRuntime 'org.objenesis:objenesis:2.1'
+        testRuntime 'org.objenesis:objenesis:2.4'
 
-        testCompile 'com.athaydes:spock-reports:1.2.5'
+        testCompile 'com.athaydes:spock-reports:1.2.12'
     }
 
     license {
@@ -61,4 +65,9 @@ subprojects {
             html.enabled = true
         }
     }
+}
+
+versioneye {
+    includeSubProjects = true
+    includePlugins = false
 }
