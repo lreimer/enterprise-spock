@@ -10,5 +10,4 @@ dependencies {
 
     testCompile 'com.github.tomakehurst:wiremock:2.1.10'
     testCompile 'com.github.tomjankes:wiremock-groovy:0.2.0'
-
 }

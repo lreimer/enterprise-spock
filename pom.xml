@@ -81,7 +81,7 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.4.1</version>
+            <version>2.4.7</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -100,28 +100,28 @@
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
-            <version>1.0-groovy-2.4</version>
+            <version>1.1-groovy-2.4-rc-1</version>
             <scope>test</scope>
         </dependency>
         <!-- enables mocking of classes (in addition to interfaces) -->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
-            <version>3.1</version>
+            <version>3.2.4</version>
             <scope>test</scope>
         </dependency>
         <!-- enables mocking of classes without default constructor (together with CGLIB) -->
         <dependency>
             <groupId>org.objenesis</groupId>
             <artifactId>objenesis</artifactId>
-            <version>2.1</version>
+            <version>2.4</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.athaydes</groupId>
             <artifactId>spock-reports</artifactId>
-            <version>1.2.5</version>
+            <version>1.2.12</version>
             <scope>test</scope>
         </dependency>
 
