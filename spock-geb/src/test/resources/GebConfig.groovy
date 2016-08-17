@@ -21,8 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
 
 driver = {
@@ -39,13 +37,6 @@ waiting {
 }
 
 environments {
-    // activate using -Dgeb.env=Firefox
-    Gecko {
-        driver = {
-            new FirefoxDriver()
-        }
-    }
-
     // activate using -Dgeb.env=HtmlUnit
     HtmlUnit {
         driver = {
