@@ -8,7 +8,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile 'org.slf4j:slf4j-log4j12:1.7.21'
 
-    testCompile 'com.github.tomakehurst:wiremock:1.58'
+    testCompile 'com.github.tomakehurst:wiremock:2.1.10'
     testCompile 'com.github.tomjankes:wiremock-groovy:0.2.0'
 
 }
