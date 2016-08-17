@@ -25,9 +25,6 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'license'
 
-    version = '1.0.0'
-    group = 'de.qaware.oss'
-
     // Spock works with Java 1.5 and above
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
