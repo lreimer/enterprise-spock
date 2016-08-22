@@ -23,6 +23,7 @@
  */
 package de.qaware.showcase.spock.basics
 
+import spock.lang.Issue
 import spock.lang.Narrative
 import spock.lang.Specification
 import spock.lang.Subject
@@ -37,6 +38,7 @@ The @Title annotation cotains a short descriptive sentence, where as this
 annotation allows to add a longer descriptive text. The @Subject annotation
 marks the object under test.
 ''')
+@Issue("JIRA-4711")
 class DocumentationSpec extends Specification {
 
     @Subject

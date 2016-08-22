@@ -24,6 +24,7 @@
 package de.qaware.showcase.spock.geb
 
 import geb.spock.GebReportingSpec
+import spock.lang.Narrative
 import spock.lang.Stepwise
 import spock.lang.Title
 
@@ -34,6 +35,7 @@ import static org.junit.Assert.assertThat
  * A simple Spock specification to test the QAware homepage.
  */
 @Title("Basic navigation features for QAware homepage.")
+@Narrative('''We need to make sure the navigation to the career and community pages is working correctly.''')
 @Stepwise
 class HomePageSpec extends GebReportingSpec {
 
@@ -41,8 +43,10 @@ class HomePageSpec extends GebReportingSpec {
         when: 'we navigate to the QAware homepage'
         go("http://www.qaware.de")
 
-        then: 'the index page is displayed with the correct headline'
+        then: 'the index page is displayed'
         waitFor { at IndexPage }
+
+        and: 'the headline is correct'
         assertThat headline.text(), containsString("Qualität und Agilität")
     }
 
@@ -50,7 +54,7 @@ class HomePageSpec extends GebReportingSpec {
         when: 'we navigate to the career page'
         to CareerPage
 
-        then: 'the career page is displayed with the correct headline'
+        then: 'the career page is displayed correctly'
         waitFor { at CareerPage }
         assertThat headline.text(), containsString("Erfindergeist und Handwerksstolz.")
     }
@@ -59,7 +63,7 @@ class HomePageSpec extends GebReportingSpec {
         when: 'we navigate to the community page'
         to CommunityPage
 
-        then: 'the community page is displayed with the correct headline'
+        then: 'the community page is displayed correctly'
         waitFor { at CommunityPage }
         assertThat headline.text(), containsString("IT-Community in der Welt")
     }
