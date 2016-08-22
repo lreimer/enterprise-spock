@@ -119,7 +119,7 @@ class BookServiceClientSpec extends Specification {
         when: "we invoke the REST client to find all books"
         def books = client.findAll()
 
-        then: "we expect to books and the mock to be invoked once"
+        then: "we expect the correct number of books"
         books.size() == 2
 
         and: "the mock to be invoked exactly once"
