@@ -25,13 +25,15 @@ package de.qaware.showcase.spock.geb
 
 import geb.spock.GebReportingSpec
 import spock.lang.Stepwise
+import spock.lang.Title
 
 import static org.hamcrest.CoreMatchers.containsString
 import static org.junit.Assert.assertThat
 
 /**
- * A simple Spock specification to test the QAware home page.
+ * A simple Spock specification to test the QAware homepage.
  */
+@Title("Basic navigation features for QAware homepage.")
 @Stepwise
 class HomePageSpec extends GebReportingSpec {
 
