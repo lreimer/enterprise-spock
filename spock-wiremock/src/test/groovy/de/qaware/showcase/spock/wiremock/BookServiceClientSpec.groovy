@@ -37,10 +37,10 @@ class BookServiceClientSpec extends Specification {
 
     @Rule
     WireMockRule wireMockRule = new WireMockRule(18080)
+    def wireMock = new WireMockGroovy(18080)
 
     @Shared
     def client = new BookServiceClient("http://localhost:18080")
-    def wireMock = new WireMockGroovy(18080)
 
     def "Find a book by ISBN from a WireMock stub server using object JSON body"() {
         given: "a stubbed GET request for a single book"
@@ -65,10 +65,10 @@ class BookServiceClientSpec extends Specification {
         book.isbn == "9781617292538"
 
         and: "the mock to be invoked exactly once"
-        1 == wireMock.count {
+        wireMock.count {
             method "GET"
             url "/book/9781617292538"
-        }
+        } == 1
     }
 
     def "Find all books from a WireMock stub server using inline JSON body"() {
@@ -96,10 +96,10 @@ class BookServiceClientSpec extends Specification {
         books.size() == 2
 
         and: "the mock to be invoked exactly once"
-        1 == wireMock.count {
+        wireMock.count {
             method "GET"
             url "/book"
-        }
+        } == 1
     }
 
     def "Find all books from a WireMock stub server using a JSON body file"() {
@@ -123,9 +123,9 @@ class BookServiceClientSpec extends Specification {
         books.size() == 2
 
         and: "the mock to be invoked exactly once"
-        1 == wireMock.count {
+        wireMock.count {
             method "GET"
             url "/book"
-        }
+        } == 1
     }
 }
