@@ -21,44 +21,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.qaware.showcase.spock.basics
+package de.qaware.showcase.spock.basics;
 
-import spock.lang.Specification
+import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo
-import static spock.util.matcher.HamcrestSupport.expect
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
- * Simple Spock specification examples for the Echo bean.
+ * Basic JUnit test for the echo class
  */
-class EchoSpec extends Specification {
-    def "Reply echo 3 times using expect"() {
-        setup:
-        def echo = new Echo()
+public class EchoTest {
+    @Test
+    public void testReply() throws Exception {
+        // 1. setup of the echo class
+        Echo echo = new Echo();
 
-        expect:
-        echo.reply('echo') == 'echo echo echo'
+        // 2. invocation of method under test
+        String reply = echo.reply("hello");
+
+        // 3. verification of result
+        assertEquals("hello hello hello", reply);
     }
 
-    def "Reply echo 3 times using given-when-then"() {
-        given:
-        def echo = new Echo()
+    @Test
+    public void testReplyWithHamcrest() throws Exception {
+        // 1. setup of the echo class
+        Echo echo = new Echo(2);
 
-        when:
-        def reply = echo.reply('hello')
+        // 2. invocation of method under test
+        String reply = echo.reply("hello");
 
-        then:
-        reply == 'hello hello hello'
+        // 3. verification of result
+        assertThat(reply, equalTo("hello hello"));
     }
 
-    def "Reply hello 2 times and check with Hamcrest"() {
-        given:
-        def echo = new Echo(2)
-
-        when:
-        def reply = echo.reply('hello')
-
-        then:
-        expect reply, equalTo('hello hello')
-    }
 }
