@@ -44,15 +44,15 @@ class GreeterSpec extends Specification {
     def "Call Greeter using a Mock and check interactions"() {
         given:
         def greeting = Mock(Greeting)
-        def greeter = new Greeter(greeting)
+        def kirk = new Greeter(greeting)
 
         when:
-        def reply = greeter.sayHello('test', 3)
+        def reply = kirk.sayHello('Spock', 3)
 
         then:
-        3 * greeting.message(_ as String) >>> ['test1', 'test2', 'test3']
+        3 * greeting.message(_ as String) >>> ['Hello', 'Mr.', 'Spock']
 
         and:
-        reply == 'test1 test2 test3'
+        reply == 'Hello Mr. Spock'
     }
 }
